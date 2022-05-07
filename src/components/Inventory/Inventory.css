@@ -1,0 +1,24 @@
+.inventory-container{
+    background-color: white;
+    display: grid;
+    grid-template-columns:repeat(2,1fr);
+    margin: 20px;
+    padding: 20px;
+    grid-gap: 10px;
+    border-radius: 30px;
+    width: 600px;
+}
+
+.inventory-img img{
+    width:200px;
+    height:300px;
+}
+
+.update-btn{
+    background-color: #07c4fd;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+}
+

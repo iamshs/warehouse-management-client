@@ -11,21 +11,21 @@ const Inventories = () => {
         .then(data=>setInventories(data))
     },[])
     return (
-       <div>
-           <div>
-             <p>Our Brands and Types</p>
-             <h1>Choose Your <span>Best MotorBike</span></h1>
+       <div className='inv-container'>
+           <div >
+             <p className='inventories-head fw-bolder fs-3'>Our Brands and Types</p>
+             <h1 className='inventories-title'>Choose Your <span>Best MotorBike</span></h1>
            </div>
-           <div>
+           
            <div className='inventories'>
            {
-               inventories.slice(0,5).map(inventory=> <Inventory 
+               inventories.slice(0,6).map(inventory=> <Inventory 
                 inventory={inventory}
                 key={inventory._id}
                 > </Inventory>)
            } 
         </div>
-           </div>
+           
        </div>
     );
 };

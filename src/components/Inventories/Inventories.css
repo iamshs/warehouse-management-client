@@ -1,0 +1,22 @@
+.inv-container{
+    background-color: rgb(218, 208, 182);;
+}
+.inventories{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 100%;
+    grid-gap: 40px;
+
+}
+
+
+.inventories-head{
+   padding-top: 30px;
+    margin-bottom: 0%;
+    text-align: center;
+}
+
+.inventories-title{
+    margin-bottom: 30px;
+    text-align: center;
+}

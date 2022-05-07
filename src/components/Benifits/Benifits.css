@@ -1,0 +1,19 @@
+.card-title{
+    padding-top: 30px;
+    margin-left: 40px;
+}
+.card-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 20px;
+    margin: 40px;
+}
+.card-container h1{
+    padding-top: 50px;
+}
+
+.card{
+    width: 400px;
+    padding: 10px;
+    background-color: rgb(218, 208, 182);
+}
