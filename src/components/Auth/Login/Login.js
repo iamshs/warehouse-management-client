@@ -70,11 +70,15 @@ const Login = () => {
     }
   }, [user]);
 
+  
+
   //google user navigate
 
-  if (googleUser) {
-    navigate("/");
-  }
+  useEffect(() => {
+    if (googleUser) {
+      navigate(from);
+    }
+  }, [googleUser]);
   
 
   //hook and google error handling

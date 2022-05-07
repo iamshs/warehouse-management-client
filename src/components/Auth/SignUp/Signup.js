@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link,  useLocation, useNavigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../../firebase.init';
 import "react-toastify/dist/ReactToastify.css";
@@ -75,15 +75,15 @@ const Signup = () => {
     
 
     //handling private route navigation
-    // const navigate = useNavigate();
-    // const location = useLocation();
-    // const from = location.state?.from?.pathname || "/";
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
 
-    // useEffect(() => {
-    //     if (user) {
-    //         navigate(from, { replace: true });
-    //     }
-    // }, [user]);
+    useEffect(() => {
+        if (user) {
+            navigate(from, { replace: true });
+        }
+    }, [user]);
 
     //handling hookError
     useEffect(() => {
@@ -113,7 +113,7 @@ const Signup = () => {
 
                 <button className='login-button' type='submit'>Sign up</button>
                 <p>
-                 Already have an account? <Link to="/signup">Login</Link>
+                 Already have an account? <Link to="/login">Login</Link>
                 </p>
 
 
