@@ -1,0 +1,51 @@
+[
+    {
+        "name":"SUZUKI GSX-S1000M2",
+        "details":"Born of race-winning, track-proven DNA and raised on the street, the honed physique of the new GSX-S1000 morphs it into an even tighter and more striking package that is ready to turn heads and own the streets. It’s all about commanding performance, confidence-inspiring controllability, rider friendliness, and looks that just can’t be beat. Who knew naked aggression could be so beautiful?",
+        "price":"$1029.36",
+        "supplier":"suzuki",
+        "quantity":"0",
+        "img":"https://www.suzuki.ca/wp-content/uploads/GSX-S1000-Blue-FRT-1500x1000.jpg"
+    },
+
+  {
+      "name":"SUZUKI KATANA GSX-S1000SRQM0",
+      "details":"The KATANA is amongst Suzuki’s most iconic motorcycles, capturing the hearts of riders around the globe for over four decades. The impact of the original 1981 GSX1000S KATANA was so great, it continues to influence motorcycle design to this day.",
+      "price":"$1070.61",
+      "supplier":"suzuki",
+      "quantity":"0",
+      "img":"https://bikerswarehouse.co.za/wp-content/uploads/suzuki_katana_blak_side.jpg"
+    },
+      
+  {
+    "name":"KAWASAKI Z900ABS",
+    "details":"The Z900 replaced the heavy and somewhat bland Z800, as well as the aging Z1000, in Kawasaki is naked bike lineup, and it is proven to be a top choice in the category.",
+    "price":"$1050.26",
+    "supplier":"KAWASAKI",
+    "quantity":"0",
+    "img":"https://www.cycleworld.com/resizer/8vAuK-11vdgIutxP3-XkNDvd-FM=/1440x0/filters:focal(1000x805:1010x815)/cloudfront-us-east-1.images.arcpublishing.com/octane/YA3NTFEXSVHFRKVRAUEODDMREI.jpg"
+},
+  {
+    "name":"KAWASAKI NINJA ZX10-R",
+    "details":"The Ninja® ZX™-10R supersport bike is built for those who rise to the challenge. Hailing from the proving grounds of the FIM WorldSBK Championship, the Ninja ZX-10R motorcycle is the direct result of decades of world-class road racing innovation, carrying Kawasaki Racing Team (KRT) rider Jonathan Rea to six consecutive championship titles.",
+    "supplier":"KAWASAKI",
+    "quantity":"0",
+    "img":"https://bikerswarehouse.co.za/wp-content/uploads/21ZX1002L_40RGN1DRF3CG_A.jpg"
+},
+{
+    "name":"Husqvarna Norden 901",
+    "details":"The Norden 901 is an exceptional adventure touring motorcycle. Powered by a smooth and torquey 889 cc parallel twin engine housed in a light steel trellis frame, the Norden 901 is the complete long-distance travel package.",
+    "price":"$1070.61",
+    "supplier":"Husqvarna",
+    "quantity":"0",
+    "img":"https://bikerswarehouse.co.za/wp-content/uploads/93703_Norden-901-2022.jpg"
+},
+{
+    "name":"HONDA CBR1000SP",
+    "details":"Bringing you an extraordinary riding thrill, CBR1000SP FIREBLADE, is equipped with a list of jaw-dropping features. It comes with semi-active Öhlins Electronic Control Suspensions, plus Honda Selectable Torque Control, Selectable Engine Brake, new ABS, Quickshifter, Downshift Assist, Riding Mode select System and Power Selector. And to top it all, the RC213V-S MotoGP derived technology elevates the riding experience even further.",
+    "price":"$1081.58",
+    "supplier":"Honda",
+    "quantity":"89.23.86.145",
+    "img":"https://bikerswarehouse.co.za/wp-content/uploads/2021-cbr1000rr-r-fireblade-sp-hrc_tri_color-650x38023-1.jpg"
+    }
+]
