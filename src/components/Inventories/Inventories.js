@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Inventory from '../Inventory/Inventory';
 import './Inventories.css'
+import { Link } from 'react-router-dom';
 
 const Inventories = () => {
     const [inventories,setInventories]=useState([])
@@ -25,7 +26,9 @@ const Inventories = () => {
                 > </Inventory>)
            } 
         </div>
-           
+        <div className='my-5 pb-2 text-center pe-2'>
+        <Link className='text-decoration-none fw-bolder text-center text-white w-75 detail-btn px-2 py-2' to={'/manage'}>Manage Inventories</Link>
+        </div>   
        </div>
     );
 };

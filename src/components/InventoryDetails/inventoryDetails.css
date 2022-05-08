@@ -9,3 +9,10 @@
     width: 700px;
     height: 400px;
 }
+
+.detail-btn{
+    background-color:#07c4fd ;
+    border: none;
+    border-radius: 5px;
+
+}

@@ -1,11 +1,14 @@
 import React from 'react';
+
 import './Benifits.css'
 
 const Benifits = () => {
     return (
         <div >
+            
             <h1 className='card-title'> Benefits of Motor House </h1>
          <div className='card-container'>
+        
          <div className='card'>
             <h3>
             Customer Satisfaction

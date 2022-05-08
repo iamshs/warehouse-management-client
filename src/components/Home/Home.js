@@ -1,4 +1,5 @@
 import React from 'react';
+
 import About from '../About/About';
 import Banner from '../Banner/Banner';
 import Benifits from '../Benifits/Benifits';
