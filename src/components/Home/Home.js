@@ -8,9 +8,9 @@ import Inventories from '../Inventories/Inventories';
 const Home = () => {
     return (
         <div>
-           <Banner/>
-           <Inventories/>
-           <Benifits/>
+           <Banner />
+           <Inventories />
+           <Benifits />
            <About/>
         </div>
     );
