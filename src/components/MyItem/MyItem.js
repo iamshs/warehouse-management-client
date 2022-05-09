@@ -1,27 +1,67 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../firebase.init';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../firebase.init";
 
 const MyItem = () => {
-const [user]= useAuthState(auth)
-const [items,setItems] = useState([])
+  const [user] = useAuthState(auth);
+  const [items, setItems] = useState([]);
 
-useEffect(()=>{
-    const myItems = async ()=>{
-        const email = user.email
-     const url = `http://localhost:4000/myitem?email=${email}`
-     const {data} = await axios.get(url)
-     setItems(data) 
+  //delete
+  const handleDelete = id=>{
+    const proceed = window.confirm('Are you sure?');
+    if(proceed){
+        const url = `http://localhost:4000/inventory/${id}`;
+        fetch(url, {
+            method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            const remaining =items.filter(item => item._id !== id);
+            setItems(remaining);
+        })
     }
-    myItems()
-},[user])
+  }
 
-    return (
-        <div>
-           <h1>Your Items {items.length}</h1> 
-        </div>
-    );
+//loading data
+  useEffect(() => {
+    const myItems = async () => {
+      const email = user.email;
+      const url = `http://localhost:4000/myitem?email=${email}`;
+      const { data } = await axios.get(url);
+      setItems(data);
+      console.log(data)
+    };
+    myItems();
+  }, [user]);
+
+  return (
+    <div>
+       
+      <h1>Your Items {items.length}</h1>
+
+      {items.map((item) => (
+        <Table striped hover key={item._id}>
+          <thead className="d-flex align-content-center justify-content-evenly">
+            <tr >
+              <th>{item.name}</th>
+              <th>
+              <img className="w-25" src={item.img} alt="" />
+              </th>
+              <th>{item.price}</th>
+              <th>{item.quantity}</th>
+              <th>
+                  <button onClick={()=>handleDelete(item._id)} className="btn btn-danger">Delete</button>
+              </th>
+            </tr>
+          </thead>
+         
+        </Table>
+      ))}
+    </div>
+  );
 };
 
 export default MyItem;
