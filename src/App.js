@@ -1,5 +1,6 @@
 
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
 import './App.css';
 import AddItem from './components/AddItem/AddItem';
 import Login from './components/Auth/Login/Login';
@@ -12,6 +13,7 @@ import Home from './components/Home/Home';
 import InventoryDetails from './components/InventoryDetails/InventoryDetails';
 import ManageInventories from './components/ManageInventories/ManageInventories';
 import NotFound from './components/NotFound/NotFound';
+import MyItem from './components/MyItem/MyItem'
 
 function App() {
   return (
@@ -28,12 +30,20 @@ function App() {
         }>
 
         </Route>
-        <Route path='/manage' element={<ManageInventories/>}></Route>
-        <Route path='/additem' element={<AddItem></AddItem>}></Route>
-        <Route path='/blogs' element={<Blogs />} ></Route>
+        <Route path='/manage' element={<RequireAuth>
+            <ManageInventories />
+          </RequireAuth>}></Route>
+        <Route path='/additem' element={
+
+        <AddItem></AddItem>}>
+
+        </Route>
+        <Route path='/blogs' element={<Blogs />} > </Route>
+       <Route path='/myitem' element={<MyItem></MyItem>} ></Route>
         <Route path='*' element={<NotFound></NotFound>} > </Route>
       </Routes>
      <Footer></Footer>
+     <ToastContainer />
     </div>
   );
 }

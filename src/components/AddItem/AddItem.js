@@ -1,12 +1,33 @@
-import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init'
+import axios from "axios";
 import { toast } from "react-toastify";
 
 const AddItem = () => {
+  const [user] = useAuthState(auth);
+ 
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = (data,event) => {
+    //my item post
+     const myItem = {
+       email:user.email,
+       name: data.name ,
+       img:data.img,
+       supplier:data.supplier,
+       price:data.price
+     }
+    axios.post('http://localhost:4000/myitem', myItem).then(response=>{
+      const {data} = response
+      if (data.insertedId){
+        toast('Your Item has added')
+       
+      }
+     
+    })
+
+    //inventory data post
     const url = `http://localhost:4000/inventory`;
     
     fetch(url, {
@@ -19,6 +40,8 @@ const AddItem = () => {
       .then((res) => res.json())
       .then((result) => {
       
+        const {data} = result
+        
        
       });
   };
@@ -27,7 +50,17 @@ const AddItem = () => {
       <h1 className="my-4">Please Add A new Item</h1>
       <form className="d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
         <input
-          placeholder=" Name"
+          value={user?.displayName}
+          className="mb-2"
+          {...register("displayName", { disabled: true }, { required: true, maxLength: 20 })}
+        />
+        <input
+         value={user?.email}
+          className="mb-2"
+          {...register("email",{ disabled: true }, { required: true, maxLength: 20 })}
+        />
+        <input
+          placeholder=" Item Name"
           className="mb-2"
           {...register("name", { required: true, maxLength: 20 })}
         />
