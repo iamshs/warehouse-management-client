@@ -18,7 +18,7 @@ const AddItem = () => {
        supplier:data.supplier,
        price:data.price
      }
-    axios.post('http://localhost:4000/myitem', myItem).then(response=>{
+    axios.post('http://intense-bastion-09820.herokuapp.com/intense-bastion-09820.herokuapp.com//myitem', myItem).then(response=>{
       const {data} = response
       if (data.insertedId){
         toast('Your Item has added')
@@ -28,7 +28,7 @@ const AddItem = () => {
     })
 
     //inventory data post
-    const url = `http://localhost:4000/inventory`;
+    const url = `http://intense-bastion-09820.herokuapp.com/intense-bastion-09820.herokuapp.com//inventory`;
     
     fetch(url, {
       method: "POST",

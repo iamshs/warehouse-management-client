@@ -8,7 +8,7 @@ const useToken = user => {
             console.log(user);
             const email = user?.user?.email;
             if (email) {
-                const { data } = await axios.post('http://localhost:4000/login', { email });
+                const { data } = await axios.post('http://intense-bastion-09820.herokuapp.com/intense-bastion-09820.herokuapp.com//login', { email });
                 setToken(data.accessToken);
                 localStorage.setItem('accessToken', data.accessToken);
             }
