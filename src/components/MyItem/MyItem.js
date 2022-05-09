@@ -12,13 +12,13 @@ const MyItem = () => {
   const handleDelete = id=>{
     const proceed = window.confirm('Are you sure?');
     if(proceed){
-        const url = `http://localhost:4000/inventory/${id}`;
+        const url = `http://localhost:4000/myitem/${id}`;
         fetch(url, {
             method: 'DELETE'
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data);
+           
             const remaining =items.filter(item => item._id !== id);
             setItems(remaining);
         })
@@ -28,11 +28,11 @@ const MyItem = () => {
 //loading data
   useEffect(() => {
     const myItems = async () => {
-      const email = user.email;
+      const email = user?.email;
       const url = `http://localhost:4000/myitem?email=${email}`;
       const { data } = await axios.get(url);
       setItems(data);
-      console.log(data)
+     
     };
     myItems();
   }, [user]);
@@ -40,11 +40,11 @@ const MyItem = () => {
   return (
     <div>
        
-      <h1>Your Items {items.length}</h1>
+      <h1 className="text-center">Your Items {items.length}</h1>
 
       {items.map((item) => (
-        <Table striped hover key={item._id}>
-          <thead className="d-flex align-content-center justify-content-evenly">
+        <Table responsive striped hover key={item._id}>
+          <thead className="d-flex align-content-center justify-content-between ms-0">
             <tr >
               <th>{item.name}</th>
               <th>

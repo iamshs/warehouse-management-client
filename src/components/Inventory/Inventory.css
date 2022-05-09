@@ -6,7 +6,7 @@
     padding: 20px;
     grid-gap: 10px;
     border-radius: 30px;
-    width: 600px;
+    
 }
 
 .inventory-img img{
@@ -22,3 +22,10 @@
     color: white;
 }
 
+@media screen and (max-width:767px) {
+    .inventory-container{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        margin: 0px;
+    }
+}

@@ -17,6 +17,8 @@ const Blogs = () => {
                  <li>Section three is the signature.</li>
              </ol>
          </p>
+
+         <h3>ISSUE: https://github.com/react-bootstrap/react-bootstrap/issues/6329 </h3>
         </div>
     );
 };

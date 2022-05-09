@@ -17,3 +17,18 @@
     padding: 10px;
     background-color: rgb(218, 208, 182);
 }
+
+@media screen and (max-width:767px) {
+    .card-container{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        margin: 0px;
+    }
+    .card-title{
+        padding: 0px;
+        margin: 0px;
+    }
+    .card{
+        padding: 0px;
+    }
+}
