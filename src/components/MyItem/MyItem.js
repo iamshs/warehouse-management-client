@@ -1,13 +1,16 @@
-import axios from "axios";
+import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import axiosPrivate from '../../api/axiosPrivate';
+import { useNavigate } from 'react-router-dom';
+
 
 const MyItem = () => {
   const [user] = useAuthState(auth);
   const [items, setItems] = useState([]);
-
+  const navigate = useNavigate();
   //delete
   const handleDelete = id=>{
     const proceed = window.confirm('Are you sure?');
@@ -30,12 +33,24 @@ const MyItem = () => {
     const myItems = async () => {
       const email = user?.email;
       const url = `http://localhost:4000/myitem?email=${email}`;
-      const { data } = await axios.get(url);
-      setItems(data);
-     
+
+      try {
+        const {data} = await axiosPrivate.get(url);
+        setItems(data);
+      } 
+      catch (error) {
+        if(error.response.status === 401 || error.response.status === 403){
+          signOut(auth);
+          navigate('/login')
+        
+      }
+    }
+    
     };
-    myItems();
-  }, [user]);
+
+    myItems()
+
+  },[user]);
 
   return (
     <div>
@@ -43,7 +58,7 @@ const MyItem = () => {
       <h1 className="text-center">Your Items {items.length}</h1>
 
       {items.map((item) => (
-        <Table responsive striped hover key={item._id}>
+        <Table responsive="sm" striped hover key={item._id}>
           <thead className="d-flex align-content-center justify-content-between ms-0">
             <tr >
               <th>{item.name}</th>

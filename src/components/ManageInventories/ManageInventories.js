@@ -24,7 +24,7 @@ const ManageInventories = () => {
     <div>
         <h3 className="text-center my-3">All Items</h3>
       {inventories.map((inventory) => (
-        <Table key={inventory._id} style={{backgroundColor: "rgb(218, 208, 182)"}}  striped responsive hover>
+        <Table key={inventory._id} style={{backgroundColor: "rgb(218, 208, 182)"}}  striped responsive="sm" hover>
         <thead >
           <tr >
             <th className="w-50">{inventory.name}</th>

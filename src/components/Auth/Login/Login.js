@@ -11,6 +11,7 @@ import "./Login.css";
 import g from '../../../Images/g.svg'
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useToken from "../../../hooks/useToken";
 
 
 const Login = () => {
@@ -19,6 +20,7 @@ const Login = () => {
   const [signInWithGoogle, googleUser, googleError] = useSignInWithGoogle(auth);
   const [sendPasswordResetEmail] =
     useSendPasswordResetEmail(auth);
+    const [token] = useToken(user);
   const [userInfo, setUserInfo] = useState({
     email: "",
     pass: "",
@@ -64,11 +66,9 @@ const Login = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  useEffect(() => {
-    if (user) {
-      navigate(from);
-    }
-  }, [user]);
+  if (token) {
+    navigate(from, { replace: true });
+}
 
   
 
@@ -126,7 +126,7 @@ const Login = () => {
           Don't have an account? <Link to="/signup">Sign up first</Link>
         </p>
         <p>
-          {/* {" "} */}
+        
           <button
             onClick={async () => {
               await sendPasswordResetEmail(userInfo.email);
