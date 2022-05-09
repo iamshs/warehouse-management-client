@@ -127,7 +127,7 @@ const Login = () => {
         </p>
         <p>
         
-          <button
+        <button
             onClick={async () => {
               await sendPasswordResetEmail(userInfo.email);
               toast("Sent email");
