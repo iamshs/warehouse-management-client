@@ -8,7 +8,7 @@ const ManageInventories = () => {
   const handleDelete = id =>{
     const proceed = window.confirm('Are you sure?');
     if(proceed){
-        const url = `http://intense-bastion-09820.herokuapp.com/intense-bastion-09820.herokuapp.com//inventory/${id}`;
+        const url = `https://intense-bastion-09820.herokuapp.com/inventory/${id}`;
         fetch(url, {
             method: 'DELETE'
         })

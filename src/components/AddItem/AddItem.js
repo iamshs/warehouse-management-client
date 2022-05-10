@@ -9,7 +9,7 @@ const AddItem = () => {
   const [user] = useAuthState(auth);
  
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data,event) => {
+  const onSubmit = (data) => {
     //my item post
      const myItem = {
        email:user.email,
@@ -18,7 +18,7 @@ const AddItem = () => {
        supplier:data.supplier,
        price:data.price
      }
-    axios.post('http://intense-bastion-09820.herokuapp.com/intense-bastion-09820.herokuapp.com//myitem', myItem).then(response=>{
+    axios.post('https://intense-bastion-09820.herokuapp.com//myitem', myItem).then(response=>{
       const {data} = response
       if (data.insertedId){
         toast('Your Item has added')
@@ -28,7 +28,7 @@ const AddItem = () => {
     })
 
     //inventory data post
-    const url = `http://intense-bastion-09820.herokuapp.com/intense-bastion-09820.herokuapp.com//inventory`;
+    const url = `https://intense-bastion-09820.herokuapp.com/inventory`;
     
     fetch(url, {
       method: "POST",
@@ -40,7 +40,7 @@ const AddItem = () => {
       .then((res) => res.json())
       .then((result) => {
       
-        const {data} = result
+       console.log(result)
         
        
       });

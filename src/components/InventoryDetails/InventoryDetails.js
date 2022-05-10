@@ -8,7 +8,7 @@ const InventoryDetails = () => {
   const [reload,setReload] = useState(false)
 
   useEffect(() => {
-    const url = `http://intense-bastion-09820.herokuapp.com/intense-bastion-09820.herokuapp.com//inventory/${_id}`;
+    const url = `https://intense-bastion-09820.herokuapp.com/inventory/${_id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setInventory(data));
@@ -30,7 +30,7 @@ const InventoryDetails = () => {
       const updateQuantity = parseInt(inventory.quantity) + parseInt(quantity);
       const totalQuantity = { quantity: updateQuantity };
 
-      fetch(`http://intense-bastion-09820.herokuapp.com/intense-bastion-09820.herokuapp.com//motor/${_id}`, {
+      fetch(`https://intense-bastion-09820.herokuapp.com/motor/${_id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",

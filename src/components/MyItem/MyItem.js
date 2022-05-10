@@ -7,15 +7,16 @@ import axiosPrivate from '../../api/axiosPrivate';
 import { useNavigate } from 'react-router-dom';
 
 
+
 const MyItem = () => {
   const [user] = useAuthState(auth);
-  const [items, setItems] = useState([]);
+  const [items, setItems] =useState([])
   const navigate = useNavigate();
   //delete
   const handleDelete = id=>{
     const proceed = window.confirm('Are you sure?');
     if(proceed){
-        const url = `http://intense-bastion-09820.herokuapp.com/intense-bastion-09820.herokuapp.com//myitem/${id}`;
+        const url = `https://intense-bastion-09820.herokuapp.com/myitem/${id}`;
         fetch(url, {
             method: 'DELETE'
         })
@@ -32,7 +33,8 @@ const MyItem = () => {
   useEffect(() => {
     const myItems = async () => {
       const email = user?.email;
-      const url = `http://intense-bastion-09820.herokuapp.com/intense-bastion-09820.herokuapp.com//myitem?email=${email}`;
+    
+      const url = `https://intense-bastion-09820.herokuapp.com/myitem?email=${email}`;
 
       try {
         const {data} = await axiosPrivate.get(url);

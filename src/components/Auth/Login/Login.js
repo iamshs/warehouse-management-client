@@ -60,6 +60,7 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(userInfo.email, userInfo.pass);
+    console.log(userInfo.email,userInfo.pass)
   };
   //handling private route navigation
   const navigate = useNavigate();
