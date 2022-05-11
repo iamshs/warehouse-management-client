@@ -29,7 +29,7 @@ const AddItem = () => {
     })
 
     //inventory data post
-    const url = `http://localhost:4000/inventory`;
+    const url = `https://intense-bastion-09820.herokuapp.com/inventory`;
     
     fetch(url, {
       method: "POST",
