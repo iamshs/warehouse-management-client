@@ -9,18 +9,17 @@ const InventoryDetails = () => {
   const [reload,setReload] = useState(false)
 
   useEffect(() => {
-    const url = `https://intense-bastion-09820.herokuapp.com/${_id}`;
+    const url = `https://intense-bastion-09820.herokuapp.com/inventory/${_id}`;
     fetch(url)
       .then((res) => res.json())
-      .then((data) => setInventory(data));
+      .then((data) =>{
+        setInventory(data)
+      } );
   }, [inventory]);
 
   //delivered button
 
   const handleDeliver = () => {
-    // e.preventDefault()
-    // const quantity = e.target.quantity.value
-
 
 
    
