@@ -17,7 +17,32 @@ const InventoryDetails = () => {
 
   //delivered button
 
-  
+  const handleDeliver = () => {
+    // e.preventDefault()
+    // const quantity = e.target.quantity.value
+
+
+
+   
+        const updateQuantity = parseInt(inventory.quantity) - 1
+        const totalQuantity = { quantity: updateQuantity }
+
+        fetch(`http://localhost:4000/motor/${_id}`
+            , {
+                method: 'PUT',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(totalQuantity)
+            })
+            .then(res => res.json())
+            .then(() => {
+                setReload(!reload)
+              
+                alert('Item Delivered')
+            })
+    
+}
 
   //handle restock
   const handleSubmit = (e) => {
@@ -69,7 +94,7 @@ const InventoryDetails = () => {
             </small>
           </p>
         </div>
-        <button  className="w-75 py-2 detail-btn text-white fw-bolder">
+        <button onClick={handleDeliver}  className="w-75 py-2 detail-btn text-white fw-bolder">
           Delivered
         </button>
         <Link
