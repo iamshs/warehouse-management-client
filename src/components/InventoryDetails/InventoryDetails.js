@@ -60,7 +60,7 @@ const InventoryDetails = () => {
       const updateQuantity = parseInt(inventory.quantity) + parseInt(quantity);
       const totalQuantity = { quantity: updateQuantity };
 
-      fetch(`http://localhost:4000/motor/${_id}`, {
+      fetch(`https://intense-bastion-09820.herokuapp.com/motor/${_id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
