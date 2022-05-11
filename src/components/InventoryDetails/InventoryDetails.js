@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+
 import "./inventoryDetails.css";
 
 const InventoryDetails = () => {
@@ -8,11 +9,15 @@ const InventoryDetails = () => {
   const [reload,setReload] = useState(false)
 
   useEffect(() => {
-    const url = `https://intense-bastion-09820.herokuapp.com/inventory/${_id}`;
+    const url = `http://localhost:4000/inventory/${_id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setInventory(data));
   }, [inventory]);
+
+  //delivered button
+
+  
 
   //handle restock
   const handleSubmit = (e) => {
@@ -30,7 +35,7 @@ const InventoryDetails = () => {
       const updateQuantity = parseInt(inventory.quantity) + parseInt(quantity);
       const totalQuantity = { quantity: updateQuantity };
 
-      fetch(`https://intense-bastion-09820.herokuapp.com/motor/${_id}`, {
+      fetch(`http://localhost:4000/motor/${_id}`, {
         method: "PUT",
         headers: {
           "content-type": "application/json",
@@ -64,7 +69,7 @@ const InventoryDetails = () => {
             </small>
           </p>
         </div>
-        <button className="w-75 py-2 detail-btn text-white fw-bolder">
+        <button  className="w-75 py-2 detail-btn text-white fw-bolder">
           Delivered
         </button>
         <Link

@@ -3,8 +3,9 @@ import React, { useEffect, useState } from "react";
 import { Table } from "react-bootstrap";
 import { useAuthState } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
-import axiosPrivate from '../../api/axiosPrivate';
+
 import { useNavigate } from 'react-router-dom';
+import axiosPrivate from '../../api/axiosPrivate';
 
 
 
@@ -16,7 +17,7 @@ const MyItem = () => {
   const handleDelete = id=>{
     const proceed = window.confirm('Are you sure?');
     if(proceed){
-        const url = `https://intense-bastion-09820.herokuapp.com/myitem/${id}`;
+        const url = `http://localhost:4000/myitem/${id}`;
         fetch(url, {
             method: 'DELETE'
         })
@@ -32,20 +33,23 @@ const MyItem = () => {
 //loading data
   useEffect(() => {
     const myItems = async () => {
+    if (user?.email){
       const email = user?.email;
-    
-      const url = `https://intense-bastion-09820.herokuapp.com/myitem?email=${email}`;
-
-      try {
-        const {data} = await axiosPrivate.get(url);
-        setItems(data);
-      } 
-      catch (error) {
-        if(error.response.status === 401 || error.response.status === 403){
-          signOut(auth);
-          navigate('/login')
-        
-      }
+      console.log(email)
+       const url = `http://localhost:4000/myitem?email=${email}`;
+ 
+       try {
+         const {data} = await axiosPrivate.get(url);
+         setItems(data);
+       } 
+       catch (error) {
+         if(error.response.status === 401 || error.response.status === 403){
+           signOut(auth);
+           navigate('/login')
+         
+       }
+       console.log(error)
+     }
     }
     
     };
