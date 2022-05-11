@@ -9,7 +9,7 @@ const InventoryDetails = () => {
   const [reload,setReload] = useState(false)
 
   useEffect(() => {
-    const url = `http://localhost:4000/inventory/${_id}`;
+    const url = `https://intense-bastion-09820.herokuapp.com/${_id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setInventory(data));
@@ -27,7 +27,7 @@ const InventoryDetails = () => {
         const updateQuantity = parseInt(inventory.quantity) - 1
         const totalQuantity = { quantity: updateQuantity }
 
-        fetch(`http://localhost:4000/motor/${_id}`
+        fetch(`https://intense-bastion-09820.herokuapp.com/motor/${_id}`
             , {
                 method: 'PUT',
                 headers: {

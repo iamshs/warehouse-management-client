@@ -19,7 +19,7 @@ const AddItem = () => {
        price:data.price
      }
      console.log(myItem)
-    axios.post('http://localhost:4000/myitem', myItem).then(response=>{
+    axios.post('https://intense-bastion-09820.herokuapp.com/myitem', myItem).then(response=>{
       const {data} = response
       if (data.insertedId){
         toast('Your Item has added')

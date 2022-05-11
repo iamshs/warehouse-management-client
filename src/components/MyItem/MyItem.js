@@ -17,7 +17,7 @@ const MyItem = () => {
   const handleDelete = id=>{
     const proceed = window.confirm('Are you sure?');
     if(proceed){
-        const url = `http://localhost:4000/myitem/${id}`;
+        const url = `https://intense-bastion-09820.herokuapp.com/myitem/${id}`;
         fetch(url, {
             method: 'DELETE'
         })
@@ -36,7 +36,7 @@ const MyItem = () => {
     if (user?.email){
       const email = user?.email;
       console.log(email)
-       const url = `http://localhost:4000/myitem?email=${email}`;
+       const url = `https://intense-bastion-09820.herokuapp.com/myitem?email=${email}`;
  
        try {
          const {data} = await axiosPrivate.get(url);
